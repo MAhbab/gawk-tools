@@ -1,5 +1,7 @@
+# Usage: gawk-tools bq-dryrun <string>
 # Convert output from "bq query --dry_run" to GB
-BEGIN {
+
+{
   B = "([0-9]+)"
   if (match($0, B)) {
     bytes = substr($0, RSTART, RLENGTH)
